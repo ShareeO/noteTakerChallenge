@@ -4,6 +4,7 @@ const path = require('path');
 
 router.get('/',(req,res) => {
     const resPath = path.join(__dirname,'..','public','index.html');
+    console.log(resPath)
     res.sendFile(resPath);
 });
 
