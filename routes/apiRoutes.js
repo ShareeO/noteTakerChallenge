@@ -28,7 +28,7 @@ function addNote(data) {
     })
 }
 
-app.get('/api/notes', (req, res) => {
+router.get('/api/notes', (req, res) => {
     Notes()
         .then(notes => res.json(notes))
         .catch((err) => res.status(500).json({
@@ -36,7 +36,7 @@ app.get('/api/notes', (req, res) => {
         }));
 });
 
-app.post('/api/notes', (req, res) => {
+router.post('/api/notes', (req, res) => {
     req.body['id'] = nanoid();
     Notes()
         .then(notes => [...notes, req.body])
@@ -47,7 +47,7 @@ app.post('/api/notes', (req, res) => {
         }));
 })
 
-app.delete('/api/notes/:id', function (req, res) {
+router.delete('/api/notes/:id', function (req, res) {
     let id = req.params.id;
     Notes()
         .then(notes => notes.filter((note) => note.id !== id))
@@ -58,4 +58,4 @@ app.delete('/api/notes/:id', function (req, res) {
         }));
 })
 
-module.exports = app
+module.exports = router
