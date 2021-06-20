@@ -1,5 +1,5 @@
 const express = require('express');
-const app = express.Router();
+const router = express.Router();
 const fs = require('fs');
 const path = require('path');
 const jsonPath = path.join(__dirname, '..', 'db', 'db.json')
