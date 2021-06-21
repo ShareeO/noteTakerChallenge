@@ -3,7 +3,6 @@ const router = express.Router();
 const fs = require('fs');
 const path = require('path');
 const jsonPath = path.join(__dirname, '../db/db.json')
-const nanoid = require('nanoid')
 
 const Notes = () => {
     return new Promise((resolve, reject) => {
@@ -39,7 +38,8 @@ router.get('/api/notes', (req, res) => {
 });
 
 router.post('/api/notes', (req, res) => {
-    req.body['id'] = nanoid();
+    console.log(req.body)
+    //['id'] = nanoid();
     Notes()
         .then(notes => [...notes, req.body])
         .then(addedNote => addNote(addedNote))
