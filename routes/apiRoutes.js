@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 const path = require('path');
-const jsonPath = path.join(__dirname, '..', 'db', 'db.json')
+const jsonPath = path.join(__dirname, '../db/db.json')
 
 const Notes = () => {
     return new Promise((resolve, reject) => {
