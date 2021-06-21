@@ -3,6 +3,7 @@ const router = express.Router();
 const fs = require('fs');
 const path = require('path');
 const jsonPath = path.join(__dirname, '../db/db.json')
+const nanoid = require('nanoid')
 
 const Notes = () => {
     return new Promise((resolve, reject) => {
@@ -18,6 +19,7 @@ const Notes = () => {
 
 function addNote(data) {
     return new Promise((resolve, reject) => {
+        console.log(data)
         fs.writeFile(jsonPath, JSON.stringify(data), 'utf-8', (err) => {
             if (err) {
                 reject(err)
