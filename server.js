@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(apiRoutes)
 app.use(htmlRoutes)
 
-app.listen(3001, () => {
+app.listen(PORT, () => {
     console.log("server running on PORT: " + PORT)
 
 })
